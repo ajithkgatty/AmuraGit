@@ -4,6 +4,7 @@
 <% else %>
   <p>
     You are signed in as <%= current_user.username %>.
+    Click here to go your repositories <%= link_to "xxx", repository_path(current_user.username) %>
   </p>
 
   <%= button_to "Sign Out", signout_path, method: :delete %>

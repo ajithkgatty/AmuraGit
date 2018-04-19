@@ -7,7 +7,10 @@ class SessionsController < ApplicationController
 
     if user.valid?
       session[:user_id] = user.id
+      # session[:token] = user.oauth_token
+
       redirect_to request.env['omniauth.origin']
+      # render 'layouts/dummy'
     end
   end
 
