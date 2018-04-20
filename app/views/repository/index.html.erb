@@ -1,2 +1,20 @@
-<h1>Repository#index</h1>
-<p>Find me in app/views/repository/index.html.erb</p>
+<div class="setMargin">
+<p> List of Repositories </p>
+<% @response.each do |r| %>
+	<div class="repo-blocks" onclick="handle(this)">
+		<%= r["id"] %>
+		<%= link_to r["name"], repo_path(r["id"]) %>
+		<div class="inner-block" style="display: none" >
+
+			<p> Repository Name: <%= r["name"] %> </p>
+			<p> Repository Description: <%= r["description"].blank? ? "No discription as of yet!! " : r["description"] %> </p>
+		</div>
+	</div>
+<% end %> 
+</div>
+<script>
+function handle(ele)
+{ 
+	$(ele).find('.inner-block').toggle();
+}
+</script>

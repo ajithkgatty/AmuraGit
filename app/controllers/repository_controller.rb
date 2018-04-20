@@ -3,11 +3,8 @@ class RepositoryController < ApplicationController
   require 'net/http'
 
   def index
-  end
-
-  def show
   	username = params[:username]
-  	url = URI("https://api.github.com/users/#{username}/repos?per_page=100")
+  	url = URI("https://api.github.com/users/#{username}/repos")
 
 	http = Net::HTTP.new(url.host, url.port)
 	http.use_ssl = true
@@ -20,5 +17,9 @@ class RepositoryController < ApplicationController
 	 @response = JSON.parse(http.request(request).read_body)
 	
 	
+  end
+
+  def show
+  	@details = session[params[:id]]
   end
 end
