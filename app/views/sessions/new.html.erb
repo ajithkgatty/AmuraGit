@@ -1,11 +1,11 @@
 <% if current_user.blank? %>
-  <h1>Please Sign In</h1>
-  <%= link_to 'Sign In with Github', '/auth/github' %>
+	<div class="place_middle">
+	  <%= image_tag("sign_in.png", alt: "Edit Entry") %>
+	  <%= link_to 'Sign In with Github', '/auth/github'%>
+	</div>
 <% else %>
-  <p>
-    You are signed in as <%= current_user.username %>.
-    Click here to go your repositories <%= link_to "xxx", repository_path(current_user.username) %>
-  </p>
-
-  <%= link_to "Sign Out", signout_path, method: :delete %>
+	<div class="jumbotron place_middle" >
+	  <p> You are signed in as <strong><i><%= current_user.username %></i></strong>.  </p>
+	   <p> Click <i><%= link_to "here", repository_path(current_user.username) %> </i>to go your repositories.</p>
+	</div>
 <% end %>

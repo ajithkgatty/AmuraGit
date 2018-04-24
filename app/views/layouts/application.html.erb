@@ -10,11 +10,15 @@
 
   <body>
   	<div class="container">
-  		<% if !current_user.blank? %>
-  			 <div class="navbar-text navbar-right">Hello <%= current_user.username %>, <%= link_to "Sign Out", signout_path, method: :delete %></a>
- 			 </div>
-  		<% end %>
+      <div class="row">
+    		<% if !current_user.blank? %>
+          <div class="navbar-text navbar-right">Hello <i><span class="set_title"><%= current_user.username %></span></i> | <%= link_to "Sign Out", signout_path, method: :delete %></a>
+          </div>
+    		<% end %>
+      </div>
     <%= yield %>
 	</div>
   </body>
 </html>
+
+ 
